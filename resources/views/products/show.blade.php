@@ -11,16 +11,15 @@
          <img src="{{ asset('img/dummy.png')}}" class="w-100 img-fluid">
          @endif
         </div>
-        <div class="col">
-           <div class="d-flex flex-column">                 
-            <h1 class="">
+        <div class="col">               
+            <h1>
               {{$product->name}}                 
             </h1>
             @if ($product->reviews()->exists())
               <span class="samuraimart-star-rating" data-rate="{{ round($product->reviews->avg('score') * 2) / 2 }}"></span>
               {{ round($product->reviews->avg('score'), 1) }}<br>
             @endif
-            <p class="">
+            <p>
              {{$product->description}}
             </p>
             <hr>
@@ -28,7 +27,7 @@
                ￥{{$product->price}}(税込)
              </p>
              <hr>
-         </div>
+        
          @auth
          <form method="POST" action="{{route('carts.store')}}" class="m-3 align-items-end">
            @csrf
